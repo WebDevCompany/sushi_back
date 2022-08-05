@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('test');
 });
 */
-
+/*new route*/
 Route::get('/', function () {
     return view('layouts.layout');
 });
