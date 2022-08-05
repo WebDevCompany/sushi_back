@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,37 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', UserController::class . '@show');
-/*
 Route::get('/', function () {
-    return view('test');
-});
-*/
-/*new route*/
-Route::get('/', function () {
-    return view('layouts.layout');
+    return view('welcome');
 });
 
-Route::get('/name_category', function () {
-    return "Категории";
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/name_product', function () {
-    return "Продукт";
-});
-
-Route::get('/reviews/{id}', ReviewsController::class . '@show');
-
-
-Route::get('/order', function () {
-    return "Оформление заказа";
-});
-
-Route::get('/order1', function () {
-    return "Оформление заказа1";
-});
-
-Route::get('/order2', function () {
-    return "Оформление заказа2";
-});
-
+require __DIR__.'/auth.php';
