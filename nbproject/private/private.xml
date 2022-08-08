@@ -4,9 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/example.com/sushi_back/routes/web.php</file>
+            <file>file:/var/www/example.com/sushi_back/app/View/Components/AppLayout.php</file>
             <file>file:/var/www/example.com/sushi_back/resources/views/dashboard.blade.php</file>
             <file>file:/var/www/example.com/sushi_back/app/Http/Controllers/UserController.php</file>
-            <file>file:/var/www/example.com/sushi_back/resources/views/layouts/layout.blade.php</file>
+            <file>file:/var/www/example.com/sushi_back/resources/views/admin/layouts/index.blade.php</file>
+            <file>file:/var/www/example.com/sushi_back/app/View/Components/GuestLayout.php</file>
         </group>
     </open-files>
 </project-private>
