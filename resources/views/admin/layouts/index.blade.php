@@ -115,14 +115,14 @@
 
                             <!-- Рабочая область, сюда буду вставлять все элементы управления. -->
 
+                            @isset($nameRoute)
+                            @if ($nameRoute == 'dashboard')
                             <!-- General Elements card Форма для редактирования товаров и категорий.-->
                             <x-dashboard.general-form/>
                             <!-- General Elements/.card -->
-                            
-                            
-
-
-
+                            @endif
+                            @endisset
+                         
                             
                             <!-- start card Планирую использовать для вывода списка категорий и товаров-->
                            
@@ -134,9 +134,14 @@
                             
                             <!-- /.card -->
                             
+                            
+                            @isset($nameRoute)
+                            @if ($nameRoute == 'dashboard')
                             <!-- card Блок для загрузки файлов -->
                             <x-dashboard.dropzone/>
                             <!-- /.card -->
+                            @endif
+                            @endisset
                             
                         </div>
                     </div>

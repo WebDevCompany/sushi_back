@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/example.com/sushi_back/resources/views/components/dashboard/head.blade.php</file>
             <file>file:/var/www/example.com/sushi_back/routes/web.php</file>
-            <file>file:/var/www/example.com/sushi_back/resources/views/components/dashboard/side-bar-menu.blade.php</file>
-            <file>file:/var/www/example.com/sushi_back/resources/views/components/dashboard/small-boxes.blade.php</file>
-            <file>file:/var/www/example.com/sushi_back/app/Http/Controllers/Dashboard/HomeDashboardController.php</file>
-            <file>file:/var/www/example.com/sushi_back/app/View/Components/AppLayout.php</file>
+            <file>file:/var/www/example.com/sushi_back/app/Http/Controllers/Dashboard/CategoryDashboardController.php</file>
             <file>file:/var/www/example.com/sushi_back/resources/views/dashboard.blade.php</file>
-            <file>file:/var/www/example.com/sushi_back/app/Http/Controllers/UserController.php</file>
+            <file>file:/var/www/example.com/sushi_back/resources/views/components/dashboard/general-form.blade.php</file>
             <file>file:/var/www/example.com/sushi_back/resources/views/admin/layouts/index.blade.php</file>
-            <file>file:/var/www/example.com/sushi_back/app/View/Components/GuestLayout.php</file>
-            <file>file:/var/www/example.com/sushi_back/resources/views/components/dashboard/brend-logo.blade.php</file>
         </group>
     </open-files>
 </project-private>
