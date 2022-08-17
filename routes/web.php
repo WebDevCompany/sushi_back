@@ -15,15 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
-    return view('layouts.layout');
-=======
     return view('Vlad.index');
->>>>>>> b649998a7df73fdf5463fc630abd3c37f44007e5
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.main');
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
