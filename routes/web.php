@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Vlad.index');
 });
 
 Route::get('/dashboard', function () {
@@ -22,3 +23,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/reviews', [ReviewsController::class, 'show']);
+Route::get('/review/{id}', [ReviewsController::class, 'showRev']);
+
+//Route::get('/reviews/{id}', ReviewsController::class . '@show');
