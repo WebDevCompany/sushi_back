@@ -7,6 +7,7 @@
             <file>file:/var/www/example.com/sushi_back/routes/web.php</file>
             <file>file:/var/www/example.com/sushi_back/routes/auth.php</file>
             <file>file:/var/www/example.com/sushi_back/resources/views/reviews.blade.php</file>
+            <file>file:/var/www/example.com/sushi_back/database/seeders/ReviewsSeeder.php</file>
             <file>file:/var/www/example.com/sushi_back/resources/views/welcome.blade.php</file>
             <file>file:/var/www/example.com/sushi_back/app/View/Components/AppLayout.php</file>
             <file>file:/var/www/example.com/sushi_back/resources/views/layouts/app.blade.php</file>

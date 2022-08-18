@@ -19,7 +19,15 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.main');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/users', function () {
+    return view('admin.users');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/product', function () {
+    return view('admin.product');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
