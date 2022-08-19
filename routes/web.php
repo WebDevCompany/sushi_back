@@ -1,6 +1,13 @@
 <?php
 
 use App\Http\Controllers\ReviewsController;
+/*
+ * AlexKhor
+ */
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +33,9 @@ Route::get('/dashboard/users', function () {
     return view('admin.users');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/product', function () {
-    return view('admin.product');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard/product',
+    [ProductController::class, 'show']
+)->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
