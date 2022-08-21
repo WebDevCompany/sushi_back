@@ -12,61 +12,34 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>id</th>
+                    <th>Наименование</th>
+                    <th>Цена</th>
+                    <th>Дата создания</th>
+                    <th>Правка</th>
                   </tr>
                   </thead>
                   <tbody>
                       
-                  @foreach ($products as $product) 
+                  @foreach ($products as $productData) 
                   <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->prise }}</td>
-                    <td>{{ $product->created_at }}</td>
-                    <td>edit</td>
+                    <td>{{ $productData->id }}</td>
+                    <td>{{ $productData->name }}</td>
+                    <td>{{ $productData->prise }}</td>
+                    <td>{{ $productData->created_at }}</td>
+                    <td><a href="/dashboard/product/{{ $productData->id }}">Редактировать</a></td>
                   </tr>
                   @endforeach
                   
-                  <tr>
-                    <td>Misc</td>
-                    <td>Lynx</td>
-                    <td>Text only</td>
-                    <td>-</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>IE Mobile</td>
-                    <td>Windows Mobile 6</td>
-                    <td>-</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>PSP browser</td>
-                    <td>PSP</td>
-                    <td>-</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Other browsers</td>
-                    <td>All others</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>U</td>
-                  </tr>
+                  
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>id</th>
+                    <th>Наименование</th>
+                    <th>Цена</th>
+                    <th>Дата создания</th>
+                    <th>Правка</th>
                   </tr>
                   </tfoot>
                 </table>

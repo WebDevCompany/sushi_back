@@ -12,16 +12,16 @@ use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends Controller
 {
-    public function show()
+    public function show($id=0)
     {
-        $product = Products::all();
-        return view('admin.product', ['products' => $product]);
-        //$product = Products::find(1);
-        //echo $product->name;
-        
-        //foreach (Products::all() as $product) {
-        //echo $product->name;
-        //}
+        if ($id == 0) {
+          $products = Products::all();
+          return view('admin.product', ['products' => $products]);  
+        } else {
+          $product = Products::where('id', $id);
+          //dd($product);
+          return view('admin.editproduct', ['product' => $product]);
+        }
     }
 }
 

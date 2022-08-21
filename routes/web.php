@@ -33,9 +33,11 @@ Route::get('/dashboard/users', function () {
     return view('admin.users');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/product',
+Route::get('/dashboard/product/{id?}',
     [ProductController::class, 'show']
 )->middleware(['auth'])->name('dashboard');
+
+
 
 require __DIR__.'/auth.php';
 
