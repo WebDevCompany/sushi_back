@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\MainPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-<<<<<<< HEAD
-    return view('layouts.layout');
-=======
-    return view('Vlad.index');
->>>>>>> b649998a7df73fdf5463fc630abd3c37f44007e5
-});
+Route::get('/', [MainPageController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('admin.main');
@@ -30,5 +25,3 @@ require __DIR__.'/auth.php';
 
 Route::get('/reviews', [ReviewsController::class, 'show']);
 Route::get('/review/{id}', [ReviewsController::class, 'showRev']);
-
-//Route::get('/reviews/{id}', ReviewsController::class . '@show');
