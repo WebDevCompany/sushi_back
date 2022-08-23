@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use App\Models\Categories;
 
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -18,9 +20,14 @@ class ProductController extends Controller
           $products = Products::all();
           return view('admin.product', ['products' => $products]);  
         } else {
-          $product = Products::where('id', $id);
+          $product = Products::where('id', $id)->first();
+          $categories = Categories::all();
+          
           //dd($product);
-          return view('admin.editproduct', ['product' => $product]);
+          //dd($product->name);
+          //Использовать при создании нового товара!
+          //$slug = Str::of('Laravel Framework')->slug('-');
+          return view('admin.editproduct', ['product' => $product, 'categories' => $categories]);
         }
     }
 }

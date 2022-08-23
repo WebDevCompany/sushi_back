@@ -27,10 +27,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainPageController::class, 'show']);
-
+/*
 Route::get('/', function () {
     return view('Vlad.index');
 });
+ * 
+ */
 
 
 Route::get('/dashboard', function () {

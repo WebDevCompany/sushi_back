@@ -19,17 +19,17 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Название товара</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Введите название товара">
+                                <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $product->name }}">
                             </div>
                             
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Title товара</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Введите название товара">
+                                <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $product->title }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Slug товара</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="text" class="form-control" id="exampleInputPassword1" value="slug make">
                             </div>
                             
                             <p></p>
@@ -37,24 +37,22 @@
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>Мета-тег Description</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" rows="3">{{ $product->description }}</textarea>
                                 </div>
                                 
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>Описание товара</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" rows="3">{{ $product->compound }}</textarea>
                                 </div>
                                 
                                 <!-- select -->
                       <div class="form-group">
                         <label>Категория</label>
                         <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
+                          @foreach ($categories as $category)
+                          <option>{{ $category->name }}</option>
+                          @endforeach
                         </select>
                       </div>
                             
