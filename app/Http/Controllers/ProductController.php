@@ -14,7 +14,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends Controller {
   
-  //Вывод фото по умолчанию
+  //Вывод фото по умолчанию.
 
   public function show($id = 0) {
     if ($id == 0) {
