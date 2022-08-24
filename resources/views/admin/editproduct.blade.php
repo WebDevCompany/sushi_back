@@ -15,55 +15,61 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form action="/dashboard/product/{{ $product->id }}/save" method="POST">
+                     @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Название товара</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $product->name }}">
+                                <input type="text" class="form-control" name="nameProduct" value="{{ $product->name }}">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Title товара</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $product->title }}">
+                                <input type="text" class="form-control" name="titleProduct" value="{{ $product->title }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Slug товара</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" value="slug make">
+                                <input type="text" class="form-control" name="slugProduct" value="slug make">
                             </div>
-                            
+
                             <p></p>
 
-                                <!-- textarea -->
-                                <div class="form-group">
-                                    <label>Мета-тег Description</label>
-                                    <textarea class="form-control" rows="3">{{ $product->description }}</textarea>
-                                </div>
-                                
-                                <!-- textarea -->
-                                <div class="form-group">
-                                    <label>Описание товара</label>
-                                    <textarea class="form-control" rows="3">{{ $product->compound }}</textarea>
-                                </div>
-                                
-                                <!-- select -->
-                      <div class="form-group">
-                        <label>Категория</label>
-                        <select class="form-control">
-                          @foreach ($categories as $category)
-                          <option>{{ $category->name }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                            
+                            <!-- textarea -->
+                            <div class="form-group">
+                                <label>Мета-тег Description</label>
+                                <textarea class="form-control" rows="3" name="descriptionProduct">{{ $product->description }}</textarea>
+                            </div>
+
+                            <!-- textarea -->
+                            <div class="form-group">
+                                <label>Описание товара</label>
+                                <textarea class="form-control" rows="3" name="compoundProduct">{{ $product->compound }}</textarea>
+                            </div>
+
+                            <!-- select -->
+                            <div class="form-group">
+                                <label>Категория</label>
+                                <select class="form-control">
+                                    @foreach ($categories as $category)
+                                    @if ($category->id == $product->category_id)
+                                    <option selected>{{ $category->name }}</option>
+                                    @else
+                                    <option>{{ $category->name }}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
 
+                                @foreach ($collectImage as $image)
 
-                                <label for="exampleInputFile">Фото товара №1</label>
+                                <label for="exampleInputFile">Фото товара {{ $image->position }}</label>
 
                                 <div class="col-sm-4">
                                     <div class="position-relative">
-                                        <img src="{{ URL::asset('admin/dist/img/photo1.png') }}" alt="Photo 1" class="img-fluid">
+                                        <img src="/images/Vlad/products/{{ $image->path }}" alt="{{ $image->path }}" class="img-fluid">
                                     </div>
                                 </div>
 
@@ -78,8 +84,12 @@
                                         <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
-                                
-                                
+
+                                @endforeach
+
+
+
+
 
                             </div>
 
@@ -87,16 +97,23 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-secondary">Сохранить</button>
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
                         </div>
+
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-danger">Отменить</button>
+                            <a class="btn btn-primary"  href="/dashboard/product/{{ $product->id }}/save">Сохранить и выйти</a>       
                         </div>
+
+                        <div class="card-footer">
+                            <a class="btn btn-danger"  href="/dashboard/product/">Отменить</a>       
+                        </div>
+
+
+
+
                     </form>
                 </div>
                 <!-- /.card -->
-
-
 
 
             </div>

@@ -43,9 +43,19 @@ Route::get('/dashboard/users', function () {
     return view('admin.users');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/product/{id?}',
+Route::get('/dashboard/product/',
     [ProductController::class, 'show']
 )->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/product/{id}',
+    [ProductController::class, 'show']
+)->middleware(['auth'])->name('dashboard');
+
+Route::post('/dashboard/product/{id}/save',
+    [ProductController::class, 'store']
+)->middleware(['auth'])->name('dashboard');
+
+
 
 
 
