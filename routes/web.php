@@ -37,23 +37,36 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('admin.main');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard1');
 
 Route::get('/dashboard/users', function () {
     return view('admin.users');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard2');
 
 Route::get('/dashboard/product/',
     [ProductController::class, 'show']
-)->middleware(['auth'])->name('dashboard');
+)->middleware(['auth'])->name('dashboard3');
 
 Route::get('/dashboard/product/{id}',
     [ProductController::class, 'show']
-)->middleware(['auth'])->name('dashboard');
+)->middleware(['auth'])->name('dashboard4');
 
 Route::post('/dashboard/product/{id}/save',
     [ProductController::class, 'store']
+)->middleware(['auth'])->name('dashboard5');
+
+Route::post('/dashboard/product/{id}/delete',
+    [ProductController::class, 'delete']
+)->middleware(['auth'])->name('dashboard6');
+
+/*
+ * Загрузка изображений
+ 
+Route::post('/dashboard/product/{id}/load',
+    [ProductController::class, 'load']
 )->middleware(['auth'])->name('dashboard');
+ * 
+ */
 
 
 

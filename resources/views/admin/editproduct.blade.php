@@ -15,8 +15,8 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="/dashboard/product/{{ $product->id }}/save" method="POST">
-                     @csrf
+                    <form action="/dashboard/product/{{ $product->id }}/save" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Название товара</label>
@@ -28,6 +28,12 @@
                                 <input type="text" class="form-control" name="titleProduct" value="{{ $product->title }}">
                             </div>
 
+                            <!-- textarea -->
+                            <div class="form-group">
+                                <label>Мета-тег Description</label>
+                                <textarea class="form-control" rows="3" name="descriptionProduct">{{ $product->description }}</textarea>
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Slug товара</label>
                                 <input type="text" class="form-control" name="slugProduct" value="slug make">
@@ -37,14 +43,13 @@
 
                             <!-- textarea -->
                             <div class="form-group">
-                                <label>Мета-тег Description</label>
-                                <textarea class="form-control" rows="3" name="descriptionProduct">{{ $product->description }}</textarea>
-                            </div>
-
-                            <!-- textarea -->
-                            <div class="form-group">
                                 <label>Описание товара</label>
                                 <textarea class="form-control" rows="3" name="compoundProduct">{{ $product->compound }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">Цена</label>
+                                <input type="text" class="form-control" name="priceProduct" value="{{ $product->prise }}">
                             </div>
 
                             <!-- select -->
@@ -69,27 +74,18 @@
 
                                 <div class="col-sm-4">
                                     <div class="position-relative">
-                                        <img src="/images/Vlad/products/{{ $image->path }}" alt="{{ $image->path }}" class="img-fluid">
+                                        <img src="/storage/{{ $image->path }}" alt="{{ $image->path }}" class="img-fluid">
                                     </div>
                                 </div>
 
                                 <p></p>
 
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="image">Загрузить другое фото</label>
+                                    <input type="file" class="form-control-file" name="image" id="image">
                                 </div>
 
                                 @endforeach
-
-
-
-
 
                             </div>
 
@@ -101,21 +97,20 @@
                         </div>
 
                         <div class="card-footer">
-                            <a class="btn btn-primary"  href="/dashboard/product/{{ $product->id }}/save">Сохранить и выйти</a>       
-                        </div>
-
-                        <div class="card-footer">
                             <a class="btn btn-danger"  href="/dashboard/product/">Отменить</a>       
                         </div>
 
-
-
-
                     </form>
+
+                    <form action="/dashboard/product/{{ $product->id }}/delete" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-danger">Удалить продукт</button>       
+                        </div>
+                    </form>
+
                 </div>
                 <!-- /.card -->
-
-
             </div>
             <!-- /.card-body -->
         </div>
