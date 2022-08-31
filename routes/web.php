@@ -7,7 +7,6 @@ use App\Http\Controllers\MainPageController;
 /*
  * AlexKhor
  */
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 
 
@@ -27,52 +26,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainPageController::class, 'show']);
-/*
-Route::get('/', function () {
-    return view('Vlad.index');
-});
- * 
- */
-
-
-Route::get('/dashboard', function () {
-    return view('admin.main');
-})->middleware(['auth'])->name('dashboard1');
-
-Route::get('/dashboard/users', function () {
-    return view('admin.users');
-})->middleware(['auth'])->name('dashboard2');
-
-Route::get('/dashboard/product/',
-    [ProductController::class, 'show']
-)->middleware(['auth'])->name('dashboard3');
-
-Route::get('/dashboard/product/{id}',
-    [ProductController::class, 'show']
-)->middleware(['auth'])->name('dashboard4');
-
-Route::post('/dashboard/product/{id}/save',
-    [ProductController::class, 'store']
-)->middleware(['auth'])->name('dashboard5');
-
-Route::post('/dashboard/product/{id}/delete',
-    [ProductController::class, 'delete']
-)->middleware(['auth'])->name('dashboard6');
-
-/*
- * Загрузка изображений
- 
-Route::post('/dashboard/product/{id}/load',
-    [ProductController::class, 'load']
-)->middleware(['auth'])->name('dashboard');
- * 
- */
 
 
 
-
-
+//Роуты авторизации. Установлены автоматически
 require __DIR__.'/auth.php';
+//Роуты админпанели. Установил хаа 27082022
+require __DIR__.'/dashboard.php';
 
 Route::get('/reviews', [ReviewsController::class, 'show']);
 Route::get('/review/{id}', [ReviewsController::class, 'showRev']);

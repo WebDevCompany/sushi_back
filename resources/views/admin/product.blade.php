@@ -7,6 +7,11 @@
               <div class="card-header">
                 <h3 class="card-title">Все товары  </h3>
               </div>
+
+              <div class="card-footer">
+                <a class="btn-sm btn-info"  href="/dashboard/addproduct">Добавить товар</a>
+              </div>
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
@@ -20,8 +25,8 @@
                   </tr>
                   </thead>
                   <tbody>
-                      
-                  @foreach ($products as $productData) 
+
+                  @foreach ($products as $productData)
                   <tr>
                     <td>{{ $productData->id }}</td>
                     <td>{{ $productData->name }}</td>
@@ -30,8 +35,8 @@
                     <td><a href="/dashboard/product/{{ $productData->id }}">Редактировать</a></td>
                   </tr>
                   @endforeach
-                  
-                  
+
+
                   </tbody>
                   <tfoot>
                   <tr>
@@ -47,14 +52,14 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-            
+
           </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
-     
-    
-    <div class="row">    
+
+
+    <div class="row">
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
         </section>
@@ -64,6 +69,6 @@
         </section>
         <!-- right col -->
     </div>
-   
+
 </x-admin-layout>
 
