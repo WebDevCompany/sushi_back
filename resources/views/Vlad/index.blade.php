@@ -10,20 +10,22 @@
 <body>
     <div class="project">
     <!-- left-bar ------------------------------>
-<x-leftSideBar />
+<x-mainPage.leftSideBar />
     <!-- end-left-bar ------------------------------>
     <!-- main ----------------------------------->
     <div class="main">
     <!-- header ----------------------------->
-<x-header />
+<x-mainPage.header />
     <!-- main-content ----------------------->
-    <x-MainContent />
+    <x-mainPage.mainContent />
     </div>
     <!--end-main ----------------------------------->
     <!-- right-bar ------------------------------------>
-    <x-rightSideBar />
+    <x-mainPage.rightSideBar />
     <!--end-right-bar ------------------------------------>
     </div>
+    <!-- footer --------------------->
+    <x-mainPage.footer />
     <script src="main.js"></script>
 </body>
 </html>

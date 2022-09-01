@@ -34,13 +34,13 @@
             
         </article>
       
-         <article class="cursor">
-            <img src=" {{asset('images/Vlad/С филадельфией.png')}} " alt="">
+        <article class="main__box cursor">
+            <div class="main__box-img"><img src=" {{asset('images/Vlad/С филадельфией.png')}} " alt=""></div>
             <p class="text">Пицца</p> 
         </article> 
 
-        <article class="cursor">
-            <img src=" {{asset('images/Vlad/Акции.png')}} " alt="">
+        <article class="main__box section__two">
+        <div class="main__box-img cursor"><img src=" {{asset('images/Vlad/Акции.png')}} " alt=""></div>
             <p class="text">Акции</p> 
         </article> 
 
@@ -54,10 +54,10 @@
         <div class="content__product">
             <div class="product__box">
                 <div class="product__img"> <img src=" {{asset('images/Vlad/Rectangle 3.png')}} " alt="">  </div>
-                <p class="product__titl-one">Саломон сет</p>
-                <p class="product__description">1050 грамм, 30 кусочков</p>
+                <p class="product__titl-one">{{ $productsNew[0]->title }}</p>
+                <p class="product__description">{{ $productsNew[0]->weight }} грамм, {{ $productsNew[0]->number_of_pieces }} кусочков</p>
                 <div class="product__wrap">                
-                     <span class="product__price">1500 СОМ</span>
+                     <span class="product__price">{{ $productsNew[0]->prise }} СОМ</span>
                     <button class="product__btn">Хочу!</button>
                 </div>
             </div>          
@@ -65,20 +65,20 @@
         
             <div class="product__box">
                 <div class="product__img"> <img src=" {{asset('images/Vlad/product2.png')}} " alt="">  </div>
-                <p class="product__titl">Филадельфия и <br> лосось сет</p>
-                <p class="product__description">1260 грамм, 36 кусочков</p>
+                <p class="product__titl">{{ $productsNew[1]->title }}</p>
+                <p class="product__description">{{ $productsNew[1]->weight }} грамм, {{ $productsNew[1]->number_of_pieces }} кусочков</p>
                 <div class="product__wrap">                
-                <span class="product__price">1150 СОМ</span>
+                <span class="product__price">{{ $productsNew[1]->prise }} СОМ</span>
                 <button class="product__btn">Хочу!</button>
             </div>
             </div>          
        
             <div class="product__box">
                 <div class="product__img"> <img src=" {{asset('images/Vlad/Product3.png')}} " alt=""></div>
-                <p class="product__titl">Самая большая Филадельфия</p>
-                <p class="product__description">2050 грамм, 45 кусочков</p>
+                <p class="product__titl">{{ $productsNew[2]->title }}</p>
+                <p class="product__description">{{ $productsNew[2]->weight }} грамм, {{ $productsNew[2]->number_of_pieces }} кусочков</p>
                 <div class="product__wrap">                
-                <span class="product__price">2100 СОМ</span>
+                <span class="product__price">{{ $productsNew[2]->prise }} СОМ</span>
                 <button class="product__btn">Хочу!</button>
             </div>
             </div>          

@@ -95,6 +95,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
      /* 2295 px*/
     margin: 0 auto;
     display: flex;
+    position: relative;
 }
 
 
@@ -104,33 +105,57 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     top:0 ;
     left:0 ;
     width: 20vw;
+    
     /* height: 100vh; */
     
 }
+.left_sidebar-wrap{
+    max-width: 180px;
+    margin: 20px 40px 0 110px;
+    
 
-.left_sidebar_logo{
-    margin-top:5% ;
-    margin-left:10% ;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
     text-align: center;
 }
+.left_sidebar_logo{
+    text-align: center;
+    /* margin-top:5% ;
+    margin-left:10% ;
+     */
+}
+.left_sidebar-title{
+    margin-top: 10px;
 
-.left_sidebar_logo figcaption {
-    font-family: "Nexa" , system-ui;
+   font-family: "Nexa" , system-ui;
     font-size: 2em;
-    text-shadow: 0em 0.1em 0.1em rgba(0, 0, 0, 0.25) ;
+    text-shadow: 0em 0.1em 0.1em rgba(0, 0, 0, 0.25); 
 }
 
+
 .logo__border{
-    margin: 30px 0 31px 110px;
+    width: 100%;
+    margin: 30px 0 30px 0;
+    /* margin: 30px 0 31px 110px;
     width: 180px;
-    height: 0px;
+    height: 0px; */
     border: 0.5px solid #A4ACAD;
 }
 
-.left_sidebar_menu{
-    padding-left: 40px;
-    margin-top: 10% ;
-    margin-left:30% ;
+.left_sidebar_menu{ /*в дальнейшем убрать этот класс все прописать в классе left_sidebar-wrap*/
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+/* padding-left: 40px; */
+    /* justify-content: center;
+    justify-items: center; */
+    align-items: center;
+    /* text-align: center; */
+    /* 
+    
+    margin-left:30% ; */
     /* flex-wrap: nowrap; */
 }
 .left_sidebar_menu_list{
@@ -148,7 +173,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 }
 
 .left_sidebar_menu_text{
-margin-left:5% ;
+margin-left:20px; /*5%*/
 font-size: larger;
 }
 
@@ -163,7 +188,7 @@ font-size: larger;
     text-align: center;
     width: 3rem;
     font-size: x-small;
-    color: rgb(255,255,255) ;
+    color: rgb(255,255,255);
     background-color: rgb(235,87,87);
     border-radius: 10% /50%;
     align-self: flex-start;
@@ -173,11 +198,10 @@ font-size: larger;
     display:none ;
 }
 
-
 /* main ======================================================*/
 
 .main{
-    width: 1170px; /*1170px*/
+    width: 60%; /*1170px*/
     height: 2295px;
     background: #F2F2F2;
     position: relative;
@@ -348,17 +372,29 @@ font-size: larger;
 /* main-content=================================== */
 
 .main-content{
-    width: 950px; /*950px*/
+    /* height: 2029px;  */
+    max-width: 950px; /*950px*/
     /* height: 470px; */
-    position: relative; /*проверить как работает*/
+   /* position: relative; проверить как работает*/
     margin: auto;
     display: flex;
     flex-direction: column; 
     align-items: center;
+    
        
+}
+.main__wrap{
+    max-width: 950px; 
+    margin: auto;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
 }
 .main-banner{    
     margin:30px 0 11px 0;
+}
+.main-banner img{    
+    max-width: 100%;
 }
 .slider-dots{
     display: flex;    
@@ -376,25 +412,53 @@ font-size: larger;
     background: #FF9846;
 }
 
-/* section =============================*/
+/* section ==============================*/
 
 .main__section{ /*Оптимизировать*/
-    width: 950px; 
+    max-width: 100%; 
     height: 430px;
+
     display: flex; 
     justify-content: space-between;
     align-content: space-between; 
     flex-wrap: wrap;  
-    line-height: 0;  
+    line-height: 0; 
+     
     margin: 31px 0 24px 0;
 
 }
-article{        
+.main__box{
+    width: 49%;  
+   /* max-width: 450px; */
+    
+}
+
+.main__box-img{
+   display: inline-block; /* Строчно-блочный элемент */
+   overflow: hidden;  /*Скрываем всё за контуром */ 
+   
+}
+
+.main__box-img img{
+    transition: 1s; /* Время эффекта */
+    display: block;
+    /* max-width:450px;  */
+    
+     max-width: 100%;  
+}
+.main__box-img img:hover{
+    overflow: hidden;
+    transform: scale(1.2); 
+}
+
+article{            
     position: relative;     
     
 }
+
 .section__two{
-    width: 470px;
+    width: 49.48%; 
+    /* min-width: 450px; */
     display: flex;
     justify-content: space-between;
 }
@@ -515,7 +579,7 @@ position: relative;
     width: 100%;
     position: absolute;  
     top: 1340px;
-    border: 1px solid red;
+    
     z-index: 100;
 }
 
@@ -584,18 +648,132 @@ position: relative;
     font-size: 24px;
     line-height: 100%;
     color: #F46D40;
+    padding-top: 30px;
+}
+/* footer ===========================*/
+.footer { /* сделать отдельным блоком не зависимым от main__content*/
+    margin-top: 60px; 
+    width: 100%;
+    height: 170px; 
+    border-top: 0.5px solid rgba(164, 172, 173, 1);
+}
+
+.footer_wrapper {
+    display: flex;
+    
+    justify-content: space-between;
+    width: 90%;
+    height: 100%;
+    font-family: 'DIN Pro';
+    font-size: large;
+    padding-top: 30px;
+}
+
+.footer_wrapper div {
+    display: flex;
+    flex-direction: column;
+   
+    
+}
+.footer_wrapper_documents{
+    
+}
+.footer_wrapper_documents_content{
+    margin-bottom:8%;
+    
+}
+
+.footer_wrapper_documents_content:hover {
+    cursor: pointer;
+}
+
+.footer_wrapper_line{
+    border-left: 0.5px solid rgba(164, 172, 173, 1) ;
+    height:247px;
+}
+
+
+.footer_wrapper_socialWebs_header {
+    color: black;
+    margin-bottom:3%; 
+}
+
+.footer_wrapper_socialWebs_form_prefics {
+    font-style: inherit;
+    font-size: large;
+    color: rgba(164, 172, 173, 1);
+}
+
+.footer_wrapper_socialWebs_form_input {
+    border: none;
+    font-style: inherit;
+    font-size: larger;
+    color: rgba(164, 172, 173, 1);
+}
+
+.footer_wrapper_socialWebs_form_input:focus-visible {
+    outline: none;
+}
+
+.footer_wrapper_socialWebs_text {
+    color: rgba(164, 172, 173, 1);
+    margin-top: 3% ;
+    margin-bottom: 3% ;
+}
+
+.footer_wrapper_socialWebs_logos {
+    
+    
+    padding-top: 10px;
+    
+    flex-direction: row !important;
+    justify-content: space-between !important;
 
 }
+
+.footer_wrapper_socialWebs button {
+    box-sizing: border-box;
+    width: 18%;
+    height: 3.2rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0)
+}
+
+.footer_wrapper_socialWebs button svg:hover {
+    cursor: pointer;
+    transition: 1s;
+    transform: scale(1.2);
+}
+
+.footer_wrapper_socialWebs_btn_watsapp svg:hover #watsapp,
+.footer_wrapper_socialWebs_btn_telegram svg:hover #telegram,
+.footer_wrapper_socialWebs_btn_instagram svg:hover #instagram {
+    fill: none;
+}
+
+.footer_wrapper_contacts {
+    color:rgba(164, 172, 173, 1) ;
+}
+
+.footer_wrapper_contacts_row{
+    margin-bottom:3%;
+}
+
+.footer_wrapper_contacts_row_number{
+    text-decoration:underline ;
+}
+
+
 /* right-bar========================================== */
 
 .right-bar{
-    width: 22%;/*430px*/
+    max-width: 430px;/*22%*/
     height: 100%;
-    
-    
+     margin: 55px 40px auto; 
+    /* margin: 0 auto; */
 }
 .right-bar__basket{
-    width: 290px;
+    max-width: 290px;
     height: 140px;
 
     background: #F2F2F2;
@@ -612,8 +790,8 @@ position: relative;
     font-size: 18px;
     line-height: 22px;
 
-    margin-top: 55px;
-    margin-left: 40px;
+    /* margin-top: 55px; */
+    /* margin-left: 40px; */
 }
 .right-bar__basket h2{ 
     font-style: normal;
@@ -627,7 +805,7 @@ position: relative;
     color: #000000;
 }
 .right-bar__btn{
-    width: 290px;
+    width: 100%;
     height: 40px;
 
     margin-top: 26px;
@@ -642,14 +820,14 @@ position: relative;
     color: #F2F2F2;
 }
 .right-bar__map{
-    width: 290px;
+    max-width: 290px;
     height: 223px;
 
     background: #F2F2F2;
     border-radius: 5px;
 
     margin-top: 20px;
-    margin-left: 40px;
+    /* margin-left: 40px; */
 
     display: flex;
     align-items: center;
@@ -657,9 +835,12 @@ position: relative;
     flex-direction: column;
 
 }
+.right-bar__map img{
+    max-width: 100%;
+}
 .map-ellipse{ /* поправить убрать чать кода , оптимизировать  */
     position: absolute;
-    margin-top: 86px;
+    margin-top: 86px;/*97px*/
 
     cursor: pointer;
 }

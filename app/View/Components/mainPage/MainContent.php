@@ -1,8 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\mainPage;
 
 use Illuminate\View\Component;
+use App\Models\Products;
+use Illuminate\Support\Facades\DB;
 
 class MainContent extends Component
 {
@@ -23,6 +25,11 @@ class MainContent extends Component
      */
     public function render()
     {
-        return view('components.main-content');
+        $productsNew = DB::table('products')
+        ->take(5)
+		->latest('updated_at')
+		->get();
+
+        return view('components.mainPage.mainContent', ['productsNew' => $productsNew]);
     }
 }

@@ -4,7 +4,6 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Models\Reviews;
-use Illuminate\Support\Facades\Route;
 
 class Review extends Component
 {
@@ -24,8 +23,8 @@ class Review extends Component
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render()
-    {   
-            $reviews = Reviews::simplePaginate(10);
-            return view('components.reviews', ['reviews' => $reviews]);
+    {
+        $reviews = Reviews::simplePaginate(10);
+        return view('components.reviews', ['reviews' => $reviews]);
     }
 }
