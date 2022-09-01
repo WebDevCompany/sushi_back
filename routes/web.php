@@ -1,7 +1,10 @@
 <?php
 
+/*
+ * AlexShvet
+ */
 use App\Http\Controllers\ReviewsController;
-
+use App\Http\Controllers\ProductsPageController;
 use App\Http\Controllers\MainPageController;
 
 /*
@@ -27,12 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainPageController::class, 'show']);
-/*
-Route::get('/', function () {
-    return view('Vlad.index');
-});
- * 
- */
+Route::get('/products', [ProductsPageController::class, 'show']);
 
 
 Route::get('/dashboard', function () {
