@@ -55,9 +55,9 @@
                             <!-- select -->
                             <div class="form-group">
                                 <label>Категория</label>
-                                <select class="form-control">
+                                <select class="form-control" name="category_id">
                                     @foreach ($categories as $category)
-                                    <option>{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

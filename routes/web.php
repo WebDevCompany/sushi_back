@@ -7,11 +7,13 @@ use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ProductsPageController;
 use App\Http\Controllers\MainPageController;
 
+
 /*
  * AlexKhor
  */
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainPageController::class, 'show']);
+
+/*
+Route::get('/', function () {
+    dd(DB::table('products')->take(5)->latest('updated_at')->get());
+});
+*/
+
 Route::get('/products', [ProductsPageController::class, 'show']);
 
 

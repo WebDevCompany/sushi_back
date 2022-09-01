@@ -22,6 +22,25 @@
                                 <label for="exampleInputEmail1">Название товара</label>
                                 <input type="text" class="form-control" name="nameProduct" value="{{ $product->name }}">
                             </div>
+                            
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Slug товара</label>
+                                <input type="text" class="form-control" name="slugProduct" value="slug make">
+                            </div>
+                            
+                           <!-- select -->
+                            <div class="form-group">
+                                <label>Категория</label>
+                                <select class="form-control" name="category_id">
+                                    @foreach ($categories as $category)
+                                    @if ($category->id == $product->category_id)
+                                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                    @else
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div> 
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Title товара</label>
@@ -35,8 +54,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Slug товара</label>
-                                <input type="text" class="form-control" name="slugProduct" value="slug make">
+                                <label for="price">Цена</label>
+                                <input type="text" class="form-control" name="priceProduct" value="{{ $product->prise }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="price">Вес набора</label>
+                                <input type="text" class="form-control" name="weightProduct" value="{{ $product->weight }}">
                             </div>
 
                             <p></p>
@@ -46,24 +70,20 @@
                                 <label>Описание товара</label>
                                 <textarea class="form-control" rows="3" name="compoundProduct">{{ $product->compound }}</textarea>
                             </div>
-
+                            
                             <div class="form-group">
-                                <label for="price">Цена</label>
-                                <input type="text" class="form-control" name="priceProduct" value="{{ $product->prise }}">
+                                <label for="price">Количество кусочков</label>
+                                <input type="text" class="form-control" name="piecesProduct" value="{{ $product->pieces }}">
                             </div>
-
-                            <!-- select -->
+                            
                             <div class="form-group">
-                                <label>Категория</label>
-                                <select class="form-control">
-                                    @foreach ($categories as $category)
-                                    @if ($category->id == $product->category_id)
-                                    <option selected>{{ $category->name }}</option>
-                                    @else
-                                    <option>{{ $category->name }}</option>
-                                    @endif
-                                    @endforeach
-                                </select>
+                                <label for="price">Доступ для заказа</label>
+                                <input type="text" class="form-control" name="accessProduct" value="{{ $product->access }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="price">Рекомендованный товар</label>
+                                <input type="text" class="form-control" name="recommendedProduct" value="{{ $product->recommended }}">
                             </div>
 
                             <div class="form-group">

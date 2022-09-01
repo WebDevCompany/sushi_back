@@ -27,9 +27,10 @@ class MainContent extends Component
     {
         $productsNew = DB::table('products')
         ->take(5)
-		->latest('updated_at')
-		->get();
+	    ->latest('updated_at')
+	    ->get();
 
-        return view('components.mainPage.mainContent', ['productsNew' => $productsNew]);
+
+        //return view('components.mainPage.mainContent', ['productsNew' => $productsNew]);
     }
 }

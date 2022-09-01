@@ -39,7 +39,7 @@ Route::get('/dashboard/product/{id}',
 )->middleware(['auth'])->name('dashboard5');
 
 Route::post('/dashboard/product/{id}/save',
-    [ProductController::class, 'store']
+    [ProductController::class, 'editStore']
 )->middleware(['auth'])->name('dashboard6');
 
 Route::post('/dashboard/product/{id}/delete',
