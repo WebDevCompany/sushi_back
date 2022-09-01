@@ -10,11 +10,7 @@ use App\Http\Controllers\MainPageController;
 /*
  * AlexKhor
  */
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-
-
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,7 +43,10 @@ Route::get('/dashboard/product/{id?}',
 
 
 
+//Роуты авторизации. Установлены автоматически
 require __DIR__.'/auth.php';
+//Роуты админпанели. Установил хаа 27082022
+require __DIR__.'/dashboard.php';
 
 Route::get('/reviews', [ReviewsController::class, 'show']);
 Route::get('/review/{id}', [ReviewsController::class, 'showRev']);
