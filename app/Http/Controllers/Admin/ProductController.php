@@ -18,11 +18,12 @@ class ProductController extends Controller {
 
   public function show($id = 0) {
     if ($id == 0) {
+      //Если нет id показываю все товары
       $products = Products::all();
       return view('admin.product', ['products' => $products]);
 
       } else {
-
+        //Если есть id, показываю товар для редактирования
         $product = Products::where('id', $id)->first();
         $categories = Categories::all();
         $collectImage = Products::where('id', $id)->first()->images;
@@ -37,16 +38,17 @@ class ProductController extends Controller {
 
   public function editStore(Request $request, $id) {
     if ($request->has([
-        'nameProduct',
-        'slugProduct',
-        'category_id',
-        'titleProduct',
-        'descriptionProduct',
-        'priceProduct',
-        'weightProduct',
-        'compoundProduct',
-        'piecesProduct',
-        'accessProduct',
+        'nameProduct' != null,
+        'slugProduct' != null,
+        'category_id' != null,
+        'titleProduct' != null,
+        'descriptionProduct' != null,
+        'priceProduct' != null,
+        'weightProduct' != null,
+        'compoundProduct' != null,
+        'piecesProduct' != null,
+        'accessProduct' != null,
+        'recommendedProduct' != null,
         ])) {
 
             //Получаю изображения
@@ -55,12 +57,17 @@ class ProductController extends Controller {
             $product = Products::where('id', $id)->first();
             //Сохраняю данные
             $product->name = $request->nameProduct;
-            $product->title = $request->titleProduct;
             $product->slug = $request->slugProduct;
-            $product->description = $request->descriptionProduct;
-            $product->compound = $request->compoundProduct;
-            $product->prise = $request->priceProduct;
             $product->category_id = $request->category_id;
+            $product->title = $request->titleProduct;
+            $product->description = $request->descriptionProduct;
+            $product->prise = $request->priceProduct;
+            $product->weight = $request->weightProduct;
+            $product->compound = $request->compoundProduct;
+            $product->number_of_pieces = $request->piecesProduct;
+            $product->access_to_order = $request->accessProduct;
+            $product->recommended_product_id = $request->recommendedProduct;
+
             $product->save();
 
             //Сохраняю фото на сервер. Без проверки, старое остается без привязки. Если нет фото сохранять заглушку.
@@ -83,7 +90,7 @@ class ProductController extends Controller {
     }
   }
 
-  public function add() {
+  public function addNew() {
     $categories = Categories::all();
     return view('admin.addproduct', ['categories' => $categories]);
   }
@@ -91,52 +98,53 @@ class ProductController extends Controller {
   public function addSave(Request $request) {
     //dd($request);
     if ($request->has([
-        'nameProduct',
-        'slugProduct',
-        'category_id',
-        'titleProduct',
-        'descriptionProduct',
-        'priceProduct',
-        'weightProduct',
-        'compoundProduct',
-        'piecesProduct',
-        'accessProduct',
+        'nameProduct' != null,
+        'slugProduct' != null,
+        'category_id' != null,
+        'titleProduct' != null,
+        'descriptionProduct' != null,
+        'priceProduct' != null,
+        'weightProduct' != null,
+        'compoundProduct' != null,
+        'piecesProduct' != null,
+        'accessProduct' != null,
+        'recommendedProduct' != null,
         ])) {
 
-      $product = new Products;
+            $product = new Products;
 
-      $product->name = $request->nameProduct;
-      $product->slug = $request->slugProduct;
-      $product->category_id = $request->category_id;
-      $product->title = $request->titleProduct;
-      $product->description = $request->descriptionProduct;
-      $product->prise = $request->priceProduct;
-      $product->weight = $request->weightProduct;
-      $product->compound = $request->compoundProduct;
-      $product->number_of_pieces = $request->piecesProduct;
-      $product->access_to_order = $request->accessProduct;
-      $product->recommended_product_id = 1;
+            $product->name = $request->nameProduct;
+            $product->slug = $request->slugProduct;
+            $product->category_id = $request->category_id;
+            $product->title = $request->titleProduct;
+            $product->description = $request->descriptionProduct;
+            $product->prise = $request->priceProduct;
+            $product->weight = $request->weightProduct;
+            $product->compound = $request->compoundProduct;
+            $product->number_of_pieces = $request->piecesProduct;
+            $product->access_to_order = $request->accessProduct;
+            $product->recommended_product_id = $request->recommendedProduct;
 
-      //Формирю ЧПУ урл. Если слаг определен или создаю его.
-      $product->slug = Str::of($request->nameProduct)->slug('-');
-      //if (!empty($request->slug)) {
-      //$product->slug = $request->slug;
-      //} else {
-      //$product->slug = Str::of($request->nameProduct)->slug('-');
-      //}
+            //Формирю ЧПУ урл. Если слаг определен или создаю его.
+            $product->slug = Str::of($request->nameProduct)->slug('-');
+            //if (!empty($request->slug)) {
+            //$product->slug = $request->slug;
+            //} else {
+            //$product->slug = Str::of($request->nameProduct)->slug('-');
+            //}
 
-      $product->save();
+            $product->save();
 
-      //Вычисляю id следующего продукта, чтобы записать данные в таблицу изображений
-      //$newId = Products::where('id')->max()->id;
-      //dd($newId);
-      $newId = Products::max('id');
-      $image = new Image;
-      $path = $request->file('image')->store('sushiPhoto');
-      $image->path = $path;
-      $image->products_id = $newId;
-      $image->position = 1;
-      $image->save();
+            //Вычисляю id следующего продукта, чтобы записать данные в таблицу изображений
+            //$newId = Products::where('id')->max()->id;
+            //dd($newId);
+            $newId = Products::max('id');
+            $image = new Image;
+            $path = $request->file('image')->store('sushiPhoto');
+            $image->path = $path;
+            $image->products_id = $newId;
+            $image->position = 1;
+            $image->save();
 
       return "stored success";
     }

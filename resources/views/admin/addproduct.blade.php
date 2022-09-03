@@ -79,22 +79,6 @@
                                 <label for="price">Рекомендованный товар №1</label>
                                 <input type="text" class="form-control" name="recommendedProduct">
                             </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №2</label>
-                                <input type="text" class="form-control" name="recommendedProduct">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №3</label>
-                                <input type="text" class="form-control" name="recommendedProduct">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №4</label>
-                                <input type="text" class="form-control" name="recommendedProduct">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №5</label>
-                                <input type="text" class="form-control" name="recommendedProduct">
-                            </div>
                             <!-- Фото товара -->
                             <div class="form-group">
                                 <div class="form-group">

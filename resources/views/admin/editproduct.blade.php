@@ -42,8 +42,7 @@
                             <!-- Тайтл товара -->
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Title товара</label>
-                                <input type="text" class="form-control" name="titleProduct"
-                                    value="{{ $product->title }}">
+                                <input type="text" class="form-control" name="titleProduct" value="{{ $product->title }}">
                             </div>
 
                             <!-- Дискрипшен -->
@@ -55,15 +54,13 @@
                             <!-- Цена товара -->
                             <div class="form-group">
                                 <label for="price">Цена</label>
-                                <input type="text" class="form-control" name="priceProduct"
-                                    value="{{ $product->prise }}">
+                                <input type="text" class="form-control" name="priceProduct" value="{{ $product->prise }}">
                             </div>
 
                             <!-- Вес товара -->
                             <div class="form-group">
                                 <label for="price">Вес набора</label>
-                                <input type="text" class="form-control" name="weightProduct"
-                                    value="{{ $product->weight }}">
+                                <input type="text" class="form-control" name="weightProduct" value="{{ $product->weight }}">
                             </div>
 
                             <p></p>
@@ -78,41 +75,21 @@
                             <div class="form-group">
                                 <label for="price">Количество кусочков</label>
                                 <input type="text" class="form-control" name="piecesProduct"
-                                    value="{{ $product->pieces }}">
+                                value="{{ $product->number_of_pieces }}">
                             </div>
 
                             <!-- Состояние доступности для заказа -->
                             <div class="form-group">
                                 <label for="price">Доступ для заказа. 1 - доступно. 0 - недоступно.</label>
                                 <input type="text" class="form-control" name="accessProduct"
-                                    value="{{ $product->access }}">
+                                value="{{ $product->access_to_order }}">
                             </div>
 
                             <!-- Рекомендованный товар -->
                             <div class="form-group">
                                 <label for="price">Рекомендованный товар №1</label>
                                 <input type="text" class="form-control" name="recommendedProduct"
-                                    value="{{ $product->recommended }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №2</label>
-                                <input type="text" class="form-control" name="recommendedProduct"
-                                    value="{{ $product->recommended }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №3</label>
-                                <input type="text" class="form-control" name="recommendedProduct"
-                                    value="{{ $product->recommended }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №4</label>
-                                <input type="text" class="form-control" name="recommendedProduct"
-                                    value="{{ $product->recommended }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Рекомендованный товар №5</label>
-                                <input type="text" class="form-control" name="recommendedProduct"
-                                    value="{{ $product->recommended }}">
+                                value="{{ $product->recommended_product_id }}">
                             </div>
 
                             <!-- Фото товара -->

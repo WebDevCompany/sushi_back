@@ -25,16 +25,16 @@
   <link rel="stylesheet" href="{{ URL::asset('admin/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ URL::asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
-  
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-  <!-- Preloader 
+  <!-- Preloader
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="/public/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
-  
+
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -74,7 +74,7 @@
           <img src="{{ URL::asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Sushi Master</a>
         </div>
       </div>
 
@@ -84,13 +84,29 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-header">SushiSite</li>
+          <li class="nav-item">
+            <a href="pages/kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Заказы
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/dashboard/product" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Товары
                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Категории
               </p>
             </a>
           </li>
@@ -103,26 +119,12 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Kanban Board
-              </p>
-            </a>
-          </li>
-         
-         
-       
-         
+
+
+
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -153,21 +155,21 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-          
-        
-        
-        
-        
+
+
+
+
+
         <!-- Main row -->
-        
+
         {{ $slot }}
-        
+
         <!-- /.row (main row) -->
-        
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    
+
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
