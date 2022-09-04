@@ -52,36 +52,21 @@
 
         <!-- content__product ------------------------------->
         <div class="content__product">
+
+        @foreach($productsNew as $productsNew)
+
             <div class="product__box">
-                <div class="product__img"> <img src=" {{asset('images/Vlad/Rectangle 3.png')}} " alt="">  </div>
-                <p class="product__titl-one">{{ $productsNew[0]->title }}</p>
-                <p class="product__description">{{ $productsNew[0]->weight }} грамм, {{ $productsNew[0]->number_of_pieces }} кусочков</p>
+                <div class="product__img"> <img src=" {{asset($productsNew->path)}} " alt="">  </div>
+                <p class="product__titl-one">{{ $productsNew->title }}</p>
+                <p class="product__description">{{ $productsNew->weight }} грамм, {{ $productsNew->number_of_pieces }} кусочков</p>
                 <div class="product__wrap">
-                     <span class="product__price">{{ $productsNew[0]->prise }} СОМ</span>
+                     <span class="product__price">{{ $productsNew->prise }} СОМ</span>
                     <button class="product__btn">Хочу!</button>
                 </div>
             </div>
 
-
-            <div class="product__box">
-                <div class="product__img"> <img src=" {{asset('images/Vlad/product2.png')}} " alt="">  </div>
-                <p class="product__titl">{{ $productsNew[1]->title }}</p>
-                <p class="product__description">{{ $productsNew[1]->weight }} грамм, {{ $productsNew[1]->number_of_pieces }} кусочков</p>
-                <div class="product__wrap">
-                <span class="product__price">{{ $productsNew[1]->prise }} СОМ</span>
-                <button class="product__btn">Хочу!</button>
-            </div>
-            </div>
-
-            <div class="product__box">
-                <div class="product__img"> <img src=" {{asset('images/Vlad/Product3.png')}} " alt=""></div>
-                <p class="product__titl">{{ $productsNew[2]->title }}</p>
-                <p class="product__description">{{ $productsNew[2]->weight }} грамм, {{ $productsNew[2]->number_of_pieces }} кусочков</p>
-                <div class="product__wrap">
-                <span class="product__price">{{ $productsNew[2]->prise }} СОМ</span>
-                <button class="product__btn">Хочу!</button>
-            </div>
-            </div>
+        @endforeach
+           
          </div>
 
 

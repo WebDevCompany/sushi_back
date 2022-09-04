@@ -26,11 +26,12 @@ class MainContent extends Component
     public function render()
     {
         $productsNew = DB::table('products')
-        ->take(5)
-	    ->latest('updated_at')
+        ->leftJoin('images', 'products.id', '=', 'images.product_id')
+        ->orderBy('images.updated_at', 'DESC')
+        ->take(3)
 	    ->get();
 
 
-        //return view('components.mainPage.mainContent', ['productsNew' => $productsNew]);
+        return view('components.mainPage.mainContent', ['productsNew' => $productsNew]);
     }
 }
