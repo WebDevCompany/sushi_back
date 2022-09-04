@@ -14,25 +14,26 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class CategoryController extends Controller {
+class OrderController extends Controller {
+//Все что ниже от контроллера образца, нужно переделать.
+//last_order переименовать в змеиный регистр
+    public function showAllOrder() {
 
-    public function showAll() {
-
-        $category = Categories::all();
-        return view('admin.allcategory', ['category' => $category]);
+        $orders = Last_order::all();
+        return view('admin.allorder', ['orders' => $orders]);
 
     }
 
-    public function editCategory(Request $request, $id) {
+    public function editOrder(Request $request, $id) {
           //Если есть id, показываю категорию для редактирования
-          $category = Categories::where('id', $id)->first();
+          $orders = Last_order::where('id', $id)->first();
 
           return view('admin.editcategory', [
-              'category' => $category,
+              'order' => $order,
           ]);
     }
 
-    public function editSaveCategory(Request $request, $id) {
+    public function saveEditOrder(Request $request, $id) {
         //dd($request);
       if ($request->has([
           'nameCategory',
@@ -83,57 +84,6 @@ class CategoryController extends Controller {
 
       $category = Categories::all();
       return view('admin.allcategory', ['category' => $category]);
-    }
-
-    public function addCategory() {
-
-        return view('admin.addcategory');
-    }
-
-
-    public function saveAddCategory(Request $request) {
-        //dd($request);
-      if ($request->has([
-          'nameCategory',
-          'titleCategory',
-          'descriptionCategory',
-          'category_descriptionCategory',
-          'conditionCategory',
-          'id_labelCategory',
-          ])) {
-
-              //Получаю продукт
-              $category = new Categories;
-              //Сохраняю данные
-              $category->name = $request->nameCategory;
-
-              //Сохраняю фото на сервер. Без проверки, старое остается без привязки. Если нет фото сохранять заглушку.
-              //Фото сохраняются в папке размещенной по ссылке public/storage/sushiPhoto
-              //Laravel кодирует имя файла.
-              //if (!empty($request->file('image'))) {
-              $path = $request->file('image')->store('sushiPhoto');
-                  //Если введен новый путь перезаписываю путь в базе изображений
-
-              $category->image_path = $path;
-              //}
-
-              $category->title = $request->titleCategory;
-              $category->description = $request->descriptionCategory;
-              $category->category_description = $request->category_descriptionCategory;
-              $category->condition = $request->conditionCategory;
-              $category->id_label = $request->id_labelCategory;
-
-              $category->save();
-
-
-              //Желательно настроить передачу сообщения об успешном сохранении
-              //Перенаправляю на страницу с продуктами
-              return redirect('/dashboard/category/');
-
-      } else {
-
-        return "Не все поля заполнены! Заполните поля и повторите попытку.";
-      }
     }
 
   }

@@ -8,6 +8,7 @@ use App\Http\Controllers\MainPageController;
  * AlexKhor
  */
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,22 +50,26 @@ Route::post('/dashboard/product/{id}/delete',
 
 //Роуты для управления категориями
 Route::get('/dashboard/category/',
-    [CategoryController::class, 'show']
+    [CategoryController::class, 'showAll']
 )->middleware(['auth'])->name('dashboard3');
 
 Route::get('/dashboard/category/{id}',
-    [CategoryController::class, 'show']
+    [CategoryController::class, 'editCategory']
+)->middleware(['auth'])->name('dashboard5');
+
+Route::post('/dashboard/category/{id}/save',
+    [CategoryController::class, 'editSaveCategory']
 )->middleware(['auth'])->name('dashboard5');
 
 Route::get('/dashboard/addcategory/',
-    [CategoryController::class, 'addNew']
+    [CategoryController::class, 'addCategory']
 )->middleware(['auth'])->name('dashboard4');
 
 Route::post('/dashboard/addcategory/save',
-    [CategoryController::class, 'addSave']
+    [CategoryController::class, 'saveAddCategory']
 )->middleware(['auth'])->name('dashboard41');
 
-Route::post('/dashboard/product/{id}/delete',
+Route::post('/dashboard/category/{id}/delete',
     [CategoryController::class, 'delete']
 )->middleware(['auth'])->name('dashboard7');
 
