@@ -16,18 +16,18 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller {
 
-    public function showAll() {
+    public function show() {
 
         $category = Categories::all();
-        return view('admin.allcategory', ['category' => $category]);
+        return view('admin.category.show', ['category' => $category]);
 
     }
 
-    public function editCategory(Request $request, $id) {
+    public function edit(Request $request, $id) {
           //Если есть id, показываю категорию для редактирования
           $category = Categories::where('id', $id)->first();
 
-          return view('admin.editcategory', [
+          return view('admin.category.edit', [
               'category' => $category,
           ]);
     }

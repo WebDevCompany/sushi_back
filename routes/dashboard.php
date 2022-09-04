@@ -50,11 +50,11 @@ Route::post('/dashboard/product/{id}/delete',
 
 //Роуты для управления категориями
 Route::get('/dashboard/category/',
-    [CategoryController::class, 'showAll']
+    [CategoryController::class, 'show']
 )->middleware(['auth'])->name('dashboard3');
 
 Route::get('/dashboard/category/{id}',
-    [CategoryController::class, 'editCategory']
+    [CategoryController::class, 'edit']
 )->middleware(['auth'])->name('dashboard5');
 
 Route::post('/dashboard/category/{id}/save',
