@@ -29,12 +29,6 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', [MainPageController::class, 'show']);
 
-/*
-Route::get('/', function () {
-    dd(DB::table('products')->take(5)->latest('updated_at')->get());
-});
-*/
-
 Route::get('/products', [ProductsPageController::class, 'show']);
 
 

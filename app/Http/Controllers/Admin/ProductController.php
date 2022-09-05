@@ -20,7 +20,7 @@ class ProductController extends Controller {
     if ($id == 0) {
       //Если нет id показываю все товары
       $products = Products::all();
-      return view('admin.product', ['products' => $products]);
+      return view('admin.product.show', ['products' => $products]);
 
       } else {
         //Если есть id, показываю товар для редактирования
@@ -28,7 +28,7 @@ class ProductController extends Controller {
         $categories = Categories::all();
         $collectImage = Products::where('id', $id)->first()->images;
 
-        return view('admin.editproduct', [
+        return view('admin.product.editproduct', [
             'product' => $product,
             'categories' => $categories,
             'collectImage' => $collectImage,
@@ -38,17 +38,17 @@ class ProductController extends Controller {
 
   public function editStore(Request $request, $id) {
     if ($request->has([
-        'nameProduct' != null,
-        'slugProduct' != null,
-        'category_id' != null,
-        'titleProduct' != null,
-        'descriptionProduct' != null,
-        'priceProduct' != null,
-        'weightProduct' != null,
-        'compoundProduct' != null,
-        'piecesProduct' != null,
-        'accessProduct' != null,
-        'recommendedProduct' != null,
+        'nameProduct',
+        'slugProduct',
+        'category_id',
+        'titleProduct',
+        'descriptionProduct',
+        'priceProduct',
+        'weightProduct',
+        'compoundProduct',
+        'piecesProduct',
+        'accessProduct',
+        'recommendedProduct',
         ])) {
 
             //Получаю изображения
@@ -92,23 +92,23 @@ class ProductController extends Controller {
 
   public function addNew() {
     $categories = Categories::all();
-    return view('admin.addproduct', ['categories' => $categories]);
+    return view('admin.product.addproduct', ['categories' => $categories]);
   }
 
   public function addSave(Request $request) {
     //dd($request);
     if ($request->has([
-        'nameProduct' != null,
-        'slugProduct' != null,
-        'category_id' != null,
-        'titleProduct' != null,
-        'descriptionProduct' != null,
-        'priceProduct' != null,
-        'weightProduct' != null,
-        'compoundProduct' != null,
-        'piecesProduct' != null,
-        'accessProduct' != null,
-        'recommendedProduct' != null,
+        'nameProduct',
+        'slugProduct',
+        'category_id',
+        'titleProduct',
+        'descriptionProduct',
+        'priceProduct',
+        'weightProduct',
+        'compoundProduct',
+        'piecesProduct',
+        'accessProduct',
+        'recommendedProduct',
         ])) {
 
             $product = new Products;
@@ -155,7 +155,7 @@ class ProductController extends Controller {
     Products::destroy($id);
 
     $products = Products::all();
-    return view('admin.product', ['products' => $products]);
+    return view('admin.product.show', ['products' => $products]);
   }
 
 }
