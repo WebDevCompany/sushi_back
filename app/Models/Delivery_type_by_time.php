@@ -5,14 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Products extends Model
+class Delivery_type_by_time extends Model
 {
     use HasFactory;
-
-    public function images()
-    {
-        return $this->hasMany(Image::class, 'products_id');
-    }
-
-
 }
