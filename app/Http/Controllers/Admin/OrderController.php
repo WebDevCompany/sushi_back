@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Models\Products;
-use App\Models\Image;
-use App\Models\Categories;
+use App\Models\Order;
+use App\Models\Promo_code;
+
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Storage;
 class OrderController extends Controller {
 //Все что ниже от контроллера образца, нужно переделать.
 //last_order переименовать в змеиный регистр
-    public function showAllOrder() {
+    public function showAll() {
 
-        $orders = Last_order::all();
+        $orders = Order::find(1);
+        dump($orders->order_status);
+        dd($orders->delivery_type);
         return view('admin.allorder', ['orders' => $orders]);
 
     }

@@ -86,7 +86,7 @@
 
           <li class="nav-header">SushiSite</li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="/dashboard/order/" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Заказы
@@ -115,6 +115,15 @@
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Пользователи
+               <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/dashboard/order/" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Промокоды
                <!-- <span class="badge badge-info right">2</span> -->
               </p>
             </a>

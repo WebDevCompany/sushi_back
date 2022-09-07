@@ -10,6 +10,7 @@ use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,7 +76,7 @@ Route::post('/dashboard/category/{id}/delete',
 
 //Роуты для управления заказами
 Route::get('/dashboard/order/',
-    [OrderController::class, 'show']
+    [OrderController::class, 'showAll']
 )->middleware(['auth'])->name('dashboard3');
 
 Route::get('/dashboard/order/{id}',
