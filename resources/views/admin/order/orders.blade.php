@@ -13,20 +13,22 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>id</th>
-                    <th>Наименование</th>
-                    <th>Cтатус</th>
-                    <th>Изменить</th>
+                    <th>Номер заказа</th>
+                    <th>Дата</th>
+                    <th>Имя закзачика</th>
+                    <th>Статус</th>
+                    <th>Редактировать</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  @foreach ($category as $category)
+                  @foreach ($orders as $order)
                   <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->conditionCategory }}</td>
-                    <td><a href="/dashboard/category/{{ $category->id }}">Редактировать</a></td>
+                    <td>{{ $order->id }}</td>
+                    <td>{{ $order->created_at }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->order_status->name }}</td>
+                    <td><a href="/dashboard/order/{{ $order->id }}">Редактировать</a></td>
                   </tr>
                   @endforeach
 
@@ -34,10 +36,11 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>id</th>
-                    <th>Наименование</th>
-                    <th>Cтатус</th>
-                    <th>Изменить</th>
+                    <th>Номер заказа</th>
+                    <th>Дата</th>
+                    <th>Имя закзачика</th>
+                    <th>Статус</th>
+                    <th>Редактировать</th>
                   </tr>
                   </tfoot>
                 </table>

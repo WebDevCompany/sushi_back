@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller {
 //Все что ниже от контроллера образца, нужно переделать.
-//last_order переименовать в змеиный регистр
+//8092022 Вывожу все заказы. Но нужно добавить пагинацию.
     public function showAll() {
 
-        $orders = Order::find(1);
-        dump($orders->order_status);
-        dd($orders->delivery_type);
-        return view('admin.allorder', ['orders' => $orders]);
+        $orders = Order::all();
+        //dd($orders);
+        //dd($orders->delivery_type);
+        return view('admin.order.orders', ['orders' => $orders]);
 
     }
-
+//Ниже ничего не делал.
     public function editOrder(Request $request, $id) {
           //Если есть id, показываю категорию для редактирования
           $orders = Last_order::where('id', $id)->first();
