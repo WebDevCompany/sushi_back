@@ -30,6 +30,7 @@ class MainContent extends Component
         ->orderBy('images.updated_at', 'DESC')
         ->take(3)
 	    ->get();
+        dd($productsNew);
 
 
         return view('components.mainPage.mainContent', ['productsNew' => $productsNew]);

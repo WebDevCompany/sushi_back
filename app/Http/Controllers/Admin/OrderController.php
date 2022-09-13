@@ -25,13 +25,13 @@ class OrderController extends Controller {
         return view('admin.order.orders', ['orders' => $orders]);
 
     }
-//Ниже ничего не делал.
+//Работаю.
     public function editOrder(Request $request, $id) {
           //Если есть id, показываю категорию для редактирования
-          $orders = Last_order::where('id', $id)->first();
+          $orders = Order::where('id', $id)->first();
 
-          return view('admin.editcategory', [
-              'order' => $order,
+          return view('admin.order.orderEdit', [
+              'order' => $orders,
           ]);
     }
 

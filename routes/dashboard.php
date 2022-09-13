@@ -80,7 +80,7 @@ Route::get('/dashboard/order/',
 )->middleware(['auth'])->name('dashboard3');
 
 Route::get('/dashboard/order/{id}',
-    [OrderController::class, 'show']
+    [OrderController::class, 'editOrder']
 )->middleware(['auth'])->name('dashboard5');
 
 Route::post('/dashboard/order/save',
