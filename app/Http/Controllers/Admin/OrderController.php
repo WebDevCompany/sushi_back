@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Order_status;
 use App\Models\Promo_code;
 
 use Illuminate\Support\Str;
@@ -15,26 +16,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller {
-//Все что ниже от контроллера образца, нужно переделать.
-//8092022 Вывожу все заказы. Но нужно добавить пагинацию.
+
     public function showAll() {
 
         $orders = Order::all();
-        //dd($orders);
-        //dd($orders->delivery_type);
         return view('admin.order.orders', ['orders' => $orders]);
 
     }
-//Работаю.
+
     public function editOrder(Request $request, $id) {
-          //Если есть id, показываю категорию для редактирования
+
           $orders = Order::where('id', $id)->first();
+          $statuses = Order_status::all();
 
           return view('admin.order.orderEdit', [
               'order' => $orders,
+              'status' => $statuses,
           ]);
     }
-
+    //Нужно реализовать сохрание статуса заказа
     public function saveEditOrder(Request $request, $id) {
         //dd($request);
       if ($request->has([
@@ -80,12 +80,6 @@ class OrderController extends Controller {
       }
     }
 
-    public function delete(Request $request, $id) {
 
-      Categories::destroy($id);
-
-      $category = Categories::all();
-      return view('admin.allcategory', ['category' => $category]);
-    }
 
   }
