@@ -83,8 +83,8 @@ Route::get('/dashboard/order/{id}',
     [OrderController::class, 'editOrder']
 )->middleware(['auth'])->name('dashboard5');
 
-Route::post('/dashboard/order/save',
-    [OrderController::class, 'addSave']
+Route::post('/dashboard/order/{id}/save',
+    [OrderController::class, 'saveOrder']
 )->middleware(['auth'])->name('dashboard41');
 
 Route::post('/dashboard/order/{id}/delete',

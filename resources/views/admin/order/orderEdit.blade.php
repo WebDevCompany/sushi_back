@@ -47,7 +47,7 @@
                                 <!-- Подготовить сдачу с купюры: -->
                                 <div class="col-4">
                                     <label for="exampleInputEmail1">Подготовить сдачу с купюры:</label>
-                                <input type="text" class="form-control" name="orderBanknote" value="{{ $order->payment_type->banknote_for_change }}">
+                                <input type="text" class="form-control" name="orderBanknote" value="{{ $order->banknote_for_change }}">
                                 </div>
                                 <!-- Тип доставки по времени -->
                                 <div class="col-4">
@@ -113,13 +113,13 @@
                                 <!-- Скидка по промокоду -->
                                 <div class="col-4">
                                     <label for="price">Скидка</label>
-                                <input type="text" class="form-control" name="orderDiscount" value="{{ $order->promo_code->discount }} %">
+                                <input type="text" class="form-control" name="orderDiscount" value="{{ $order->promo_code->discount }}">
                                 </div>
 
                                 <!-- Cтатус заказа -->
                                 <div class="col-4">
                                     <label>Статус заказа</label>
-                                    <select class="form-control" name="category_id">
+                                    <select class="form-control" name="order_statuses_id">
                                         @foreach ($status as $status_elem)
                                             @if ($status_elem->id == $order->order_status->id)
                                                 <option value="{{ $status_elem->id }}" selected>{{ $status_elem->name }}</option>
@@ -197,7 +197,7 @@
                         </div>
 
                         <div class="card-footer">
-                            <a class="btn btn-danger" href="/dashboard/product/">Отменить</a>
+                            <a class="btn btn-danger" href="/dashboard/order/">Отменить</a>
                         </div>
 
                     </form>

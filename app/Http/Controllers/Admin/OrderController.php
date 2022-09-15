@@ -35,44 +35,56 @@ class OrderController extends Controller {
           ]);
     }
     //Нужно реализовать сохрание статуса заказа
-    public function saveEditOrder(Request $request, $id) {
+    public function saveOrder(Request $request, $id) {
         //dd($request);
       if ($request->has([
-          'nameCategory',
-          'titleCategory',
-          'descriptionCategory',
-          'category_descriptionCategory',
-          'conditionCategory',
-          'id_labelCategory',
+          'order_statuses_id',
+          'orderName',
+          'orderEmail',
+          'orderPhone',
+          'orderPayment',
+          //'orderBanknote',
+          'orderDeliveryTimes',
+          //'orderComment',
+          'orderDeliveryType',
+          'orderStreet',
+          'orderHouse',
+          'orderFlat',
+          'orderEntrance',
+          'orderFloor',
+          'orderIntercom_code',
+          'orderPromo',
+          'orderDiscount',
           ])) {
 
-              //Получаю продукт
-              $category = Categories::where('id', $id)->first();
+              //Получаю нужный заказ
+              $order = Order::where('id', $id)->first();
               //Сохраняю данные
-              $category->name = $request->nameCategory;
+              $order->order_statuses_id = $request->order_statuses_id;
+              $order->name = $request->orderName;
+              $order->email = $request->orderEmail;
+              $order->phone = $request->orderPhone;
+              //Нужно делать, возвращается не то
+              //$order->payment_type_id = $request->orderPayment;
+              $order->banknote_for_change = $request->orderBanknote;
+              //$order->order_statuses_id = $request->orderDeliveryTimes;
+              $order->order_comment = $request->orderComment;
+              //Нужно делать
+              //$order->delivery_type_by_time_id = $request->orderDeliveryType;
+              $order->street = $request->orderStreet;
+              $order->house = $request->orderHouse;
+              $order->flat = $request->orderFlat;
+              $order->entrance = $request->orderEntrance;
+              $order->floor = $request->orderFloor;
+              $order->intercom_code = $request->orderIntercom_code;
+              //$order->promo_code_id = $request->orderPromo;
+              //$order->order_statuses_id = $request->orderDiscount;
 
-              //Сохраняю фото на сервер. Без проверки, старое остается без привязки. Если нет фото сохранять заглушку.
-              //Фото сохраняются в папке размещенной по ссылке public/storage/sushiPhoto
-              //Laravel кодирует имя файла.
-              if (!empty($request->file('image'))) {
-                  $path = $request->file('image')->store('sushiPhoto');
-                  //Если введен новый путь перезаписываю путь в базе изображений
-
-                  $category->image_path = $path;
-              }
-
-              $category->title = $request->titleCategory;
-              $category->description = $request->descriptionCategory;
-              $category->category_description = $request->category_descriptionCategory;
-              $category->condition = $request->conditionCategory;
-              $category->id_label = $request->id_labelCategory;
-
-              $category->save();
+              $order->save();
 
 
               //Желательно настроить передачу сообщения об успешном сохранении
-              //Перенаправляю на страницу с продуктами
-              return redirect('/dashboard/category/');
+              return redirect('/dashboard/order/');
 
       } else {
 
