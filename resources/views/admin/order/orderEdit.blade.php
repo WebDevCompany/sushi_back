@@ -39,21 +39,44 @@
                             <br>
 
                             <div class="row">
+
+
                                 <!-- Форма оплаты -->
                                 <div class="col-4">
-                                    <label for="exampleInputEmail1">Форма оплаты</label>
-                                <input type="text" class="form-control" name="orderPayment" value="{{ $order->payment_type->name }}">
+                                    <label>Форма оплаты</label>
+                                    <select class="form-control" name="orderPayment">
+                                        @foreach ($orderPayment as $orderPayment)
+                                            @if ($orderPayment->id == $order->payment_type_id)
+                                                <option value="{{ $orderPayment->id }}" selected>{{ $orderPayment->name }}</option>
+                                            @else
+                                                <option value="{{ $orderPayment->id }}">{{$orderPayment->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
+
+
                                 <!-- Подготовить сдачу с купюры: -->
                                 <div class="col-4">
                                     <label for="exampleInputEmail1">Подготовить сдачу с купюры:</label>
                                 <input type="text" class="form-control" name="orderBanknote" value="{{ $order->banknote_for_change }}">
                                 </div>
-                                <!-- Тип доставки по времени -->
+
+                                <!-- Тип доставки по времениа -->
                                 <div class="col-4">
-                                    <label for="price">Тип доставки по времени</label>
-                                    <input type="text" class="form-control" name="orderDeliveryTimes" value="{{ $order->delivery_type_by_time->name }}">
+                                    <label>Тип доставки по времени</label>
+                                    <select class="form-control" name="deliveryTypeTime">
+                                        @foreach ($delivery_type_by_time as $deliveryTypeTime)
+                                            @if ($deliveryTypeTime->id == $order->delivery_type_by_time_id)
+                                                <option value="{{ $deliveryTypeTime->id }}" selected>{{ $deliveryTypeTime->name }}</option>
+                                            @else
+                                                <option value="{{ $deliveryTypeTime->id }}">{{$deliveryTypeTime->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
+
+
                             </div>
                             <br>
                             <!-- Комментарий к заказу -->
